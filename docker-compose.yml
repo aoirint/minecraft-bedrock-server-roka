@@ -2,9 +2,12 @@ version: '3.9'
 services:
     server:
         image: itzg/minecraft-bedrock-server:latest
+        tty: true
+        stdin_open: true
         ports:
             - '0.0.0.0:19132:19132/udp'
         environment:
+            TZ: 'Asia/Tokyo'
             EULA: 'TRUE'
             VERSION: 'LATEST'
             UID: 1000
