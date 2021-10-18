@@ -1,8 +1,8 @@
-.PHONY: backup
-backup:
-	zip -r "data_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data"
+.PHONY: backup-all
+backup-all:
+	zip -r "backups/data_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data"
 
 .PHONY: backup-worlds
 backup-worlds:
-	zip -r "data_worlds_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data/worlds"
+	zip -r "backups/data_worlds_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data/worlds"
 
