@@ -23,3 +23,7 @@ list:
 	@echo "list" > /proc/$(PID)/fd/0
 	@docker-compose logs --no-log-prefix --tail=20 server | tac | grep -Pzo '(.*)\nThere are .*/.* players online:' | head -n1
 
+.PHONY: players-online
+players-online:
+	@python3 -c 'from mcstatus import MinecraftBedrockServer; print(MinecraftBedrockServer.lookup("127.0.0.1:19132").status().players_online)'
+
