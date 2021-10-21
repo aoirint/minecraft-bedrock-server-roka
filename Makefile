@@ -19,7 +19,7 @@ say:
 
 .PHONY: list
 list:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
-	echo "list" > /proc/$(PID)/fd/0
-	docker-compose logs --tail=16
+	@$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	@echo "list" > /proc/$(PID)/fd/0
+	@docker-compose logs --no-log-prefix --tail=20 server | tac | grep -Pzo '(.*)\nThere are .*/.* players online:' | head -n1
 
