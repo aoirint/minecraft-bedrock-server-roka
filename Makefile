@@ -21,4 +21,5 @@ say:
 list:
 	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
 	echo "list" > /proc/$(PID)/fd/0
+	docker-compose logs --tail=16
 
