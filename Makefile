@@ -1,4 +1,5 @@
 MESSAGE=テストメッセージ
+GAMER_TAG=
 
 .PHONY: backup-all
 backup-all:
@@ -22,6 +23,11 @@ list:
 	@$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
 	@echo "list" > /proc/$(PID)/fd/0
 	@docker-compose logs --no-log-prefix --tail=20 server | tac | grep -Pzo '(.*)\nThere are .*/.* players online:' | head -n1
+
+.PHONY: whitelist-add
+whitelist-add:
+	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	echo "whitelist add $(GAMER_TAG)" > /proc/$(PID)/fd/0
 
 .PHONY: players-online
 players-online:
