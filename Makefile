@@ -15,8 +15,8 @@ get-pid:
 
 .PHONY: say
 say:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
-	echo "say $(MESSAGE)" > /proc/$(PID)/fd/0
+	$(eval PID := $(shell /usr/local/bin/docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	@echo "say $(MESSAGE)" > /proc/$(PID)/fd/0
 
 .PHONY: list
 list:
