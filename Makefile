@@ -29,6 +29,11 @@ whitelist-add:
 	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
 	echo "whitelist add $(GAMER_TAG)" > /proc/$(PID)/fd/0
 
+.PHONY: whitelist-remove
+whitelist-remove:
+	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	echo "whitelist remove $(GAMER_TAG)" > /proc/$(PID)/fd/0
+
 .PHONY: players-online
 players-online:
 	@python3 -c 'from mcstatus import MinecraftBedrockServer; print(MinecraftBedrockServer.lookup("127.0.0.1:19132").status().players_online)'
