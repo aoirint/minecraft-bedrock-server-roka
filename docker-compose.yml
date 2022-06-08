@@ -10,7 +10,7 @@ services:
         environment:
             TZ: 'Asia/Tokyo'
             EULA: 'TRUE'
-            VERSION: '1.18'
+            VERSION: 'LATEST'
             UID: 1000
             GID: 1000
         volumes:
