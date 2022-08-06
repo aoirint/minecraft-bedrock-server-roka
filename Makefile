@@ -45,5 +45,5 @@ players-online:
 
 .PHONY: dump-logs
 dump-logs:
-	docker-compose logs -t > logs/$(shell date '+%Y-%m-%d_%H%M%S').log
+	docker-compose logs -t > logs/$(shell date '+%Y-%m-%d_%H-%M-%S').log
 
