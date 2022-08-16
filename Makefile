@@ -11,32 +11,32 @@ backup-worlds:
 
 .PHONY: get-pid
 get-pid:
-	@echo $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }')
+	@echo $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }')
 
 .PHONY: say
 say:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	$(eval PID := $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }'))
 	@echo "say $(MESSAGE)" > /proc/$(PID)/fd/0
 
 .PHONY: list
 list:
-	@$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	@$(eval PID := $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }'))
 	@echo "list" > /proc/$(PID)/fd/0
-	@docker-compose logs --no-log-prefix --tail=20 server | tac | grep -Pzo '(.*)\nThere are .*/.* players online:' | head -n1
+	@docker compose logs --no-log-prefix --tail=20 server | tac | grep -Pzo '(.*)\nThere are .*/.* players online:' | head -n1
 
 .PHONY: whitelist-add
 whitelist-add:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	$(eval PID := $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }'))
 	echo "whitelist add $(GAMER_TAG)" > /proc/$(PID)/fd/0
 
 .PHONY: whitelist-remove
 whitelist-remove:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	$(eval PID := $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }'))
 	echo "whitelist remove $(GAMER_TAG)" > /proc/$(PID)/fd/0
 
 .PHONY: whitelist-reload
 whitelist-reload:
-	$(eval PID := $(shell docker-compose top | grep bedrock_server | awk '{ print $$2 }'))
+	$(eval PID := $(shell docker compose top | grep bedrock_server | awk '{ print $$2 }'))
 	echo "whitelist reload" > /proc/$(PID)/fd/0
 
 .PHONY: players-online
@@ -45,5 +45,5 @@ players-online:
 
 .PHONY: dump-logs
 dump-logs:
-	docker-compose logs -t > logs/$(shell date '+%Y-%m-%d_%H-%M-%S').log
+	docker compose logs -t > logs/$(shell date '+%Y-%m-%d_%H-%M-%S').log
 
