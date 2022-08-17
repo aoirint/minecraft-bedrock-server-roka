@@ -41,7 +41,7 @@ whitelist-reload:
 
 .PHONY: players-online
 players-online:
-	@python3 -c 'from mcstatus import MinecraftBedrockServer; print(MinecraftBedrockServer.lookup("127.0.0.1:19132").status().players_online)'
+	@docker run --rm --network host --entrypoint "" aoirint/mcstatus:20220818.1 gosu user python3 -c 'from mcstatus import MinecraftBedrockServer; print(MinecraftBedrockServer.lookup("127.0.0.1:19132").status().players_online)'
 
 .PHONY: dump-logs
 dump-logs:
