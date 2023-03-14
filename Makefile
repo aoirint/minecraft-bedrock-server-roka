@@ -3,11 +3,11 @@ GAMER_TAG=
 
 .PHONY: backup-all
 backup-all:
-	zip -r "backups/data_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data"
+	7z a "backups/data_$(shell date '+%Y-%m-%d_%H%M%S').7z" "./data"
 
 .PHONY: backup-worlds
 backup-worlds:
-	zip -r "backups/data_worlds_$(shell date '+%Y-%m-%d_%H%M%S').zip" "./data/worlds"
+	7z a "backups/data_worlds_$(shell date '+%Y-%m-%d_%H%M%S').7z" "./data/worlds"
 
 .PHONY: get-pid
 get-pid:
