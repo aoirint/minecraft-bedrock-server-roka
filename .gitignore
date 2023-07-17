@@ -1,5 +1,6 @@
 /data
 /backups
 /logs
+/.env*
 *.zip
 
