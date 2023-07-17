@@ -1,6 +1,6 @@
-# minecraft-bedrock-roka
+# minecraft-bedrock-server-roka
 
-- 移行後のJava版: <https://github.com/aoirint/minecraft-server-roka>
+- 移行後のJava版: <https://github.com/aoirint/minecraft-java-server-roka>
 
 ```shell
 make whitelist-add GAMER_TAG=mygamertag
