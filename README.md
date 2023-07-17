@@ -3,6 +3,11 @@
 - 移行後のJava版: <https://github.com/aoirint/minecraft-java-server-roka>
 
 ```shell
+mkdir data backups logs
+chown -R 1000:1000 data backups logs
+```
+
+```shell
 make whitelist-add GAMER_TAG=mygamertag
 ```
 
