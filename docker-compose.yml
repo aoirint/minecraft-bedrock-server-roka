@@ -6,7 +6,7 @@ services:
         stdin_open: true
         restart: always
         ports:
-            - "${HOST_PORT}:19132/udp"
+            - "${HOST_PORT:?}:19132/udp"
         environment:
             TZ: 'Asia/Tokyo'
             EULA: 'TRUE'
