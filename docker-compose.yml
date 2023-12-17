@@ -15,4 +15,8 @@ services:
             GID: 1000
         volumes:
             - './data:/data'
+        logging:
+          driver: fluentd
+          options:
+            tag: docker.minecraft_bedrock_server_roka.server.{{.ID}}
 
