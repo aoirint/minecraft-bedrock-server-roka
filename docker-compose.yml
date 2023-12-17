@@ -19,5 +19,4 @@ services:
           driver: fluentd
           options:
             tag: docker.minecraft_bedrock_server_roka.server.{{.ID}}
-            fluentd-async: true
-
+            fluentd-async: "true"
