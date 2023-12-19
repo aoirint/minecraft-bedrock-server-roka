@@ -2,5 +2,5 @@
 /backups
 /logs
 /.env*
+/work
 *.zip
-
